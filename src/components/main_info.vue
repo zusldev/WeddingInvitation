@@ -1,41 +1,45 @@
 <template>
   <div class="container">
     <div class="main-picture">
-      <img src="@/assets/images/img15.jpg" />
-    </div>
-    <div class="main-info">
-      <div class="main-info-title">
-        <p>The Marriage Of</p>
-        <p>/ 정동현 & 이지은 /</p>
-      </div>
-      <div class="main-info-location">
-        <p>2022년 2월 19일 토요일 오후 3시 30분</p>
-        <p>당산 그랜드컨벤션센터 3층 리젠시홀</p>
-      </div>
-      <div class="divide-line"></div>
-      <div class="main-greeting">
-        <div class="main-greeting-title">
-          <p>2월 19일</p>
-          <p>정양수 ∙ 김미화의 <span>차남</span> 동현</p>
-          <p>이영재 ∙ 이용선의 <span>장녀</span> 지은</p>
-          <p>결혼합니다</p>
-        </div>
-        <div class="main-greeting-text">
-          <p>함께 있을 때 가장 나다운 모습이 되고</p>
-          <p>함께 있을 때 미래를 꿈꾸게 하는 사람을 만났습니다</p>
-          <br />
-          <p>그 사람과 같은 방향을 바라보고</p>
-          <p>인생이라는 여행을 함께 시작하려합니다</p>
-          <p>사랑으로 함께 가는 길,</p>
-          <p>행복한 가정으로 가꾸어 갈 수 있도록</p>
-          <p>귀한 걸음하시어 축복해주시면</p>
-          <p>큰 기쁨으로 간직하겠습니다</p>
+      <div>
+        <img class="image" src="@/assets/images/wedding-portrait.jpg" alt="Imagen principal"/>
+        <div class="logo">
+          <img src="@/assets/images/vandk-removebg-preview.png" alt="Logo"/>
         </div>
       </div>
-      <div class="bottom-img">
-        <img :src="require('@/assets/images/img14.jpg')" />
+      <div class="rippedpaper">
+        <img src="https://files.rb.gd/atlanticimpact/ripped-paper-n.png" alt="Ripped paper"/>
+      </div>
+      <div class="rippedpaper-top">
+        <img src="https://files.rb.gd/atlanticimpact/ripped-paper-n.png" alt="Ripped paper"/>
+      </div>
+      <div class="names">
+        <p class="boy">VICTOR <br> <span class="names-bride">& KARLA</span></p>
       </div>
     </div>
+    <div class="divide-line"></div>
+    <div class="main-greeting">
+      <div class="main-greeting-title">
+        NOS ENCANTARÍA CELEBRAR ESTE DÍA
+        TAN ESPECIAL JUNTO A TI
+      </div>
+      <div class="main-greeting-text">
+        CON LA BENDICIÓN DE DIOS Y
+        NUESTROS PADRES
+      </div>
+      <div id="padres">
+        <p>José Manuel Pacheco</p>
+        <p>María Elena Padilla</p>
+        <p>&</p>
+        <p>Victor Manuel Ramirez</p>
+        <p>Trinidad Lourdes Rosas</p>
+      </div>
+    </div>
+
+    <div class="">
+      <img class="image" id="sec-img" src="@/assets/images/wedding-portrait.jpg"/>
+    </div>
+
     <div class="divide-line"></div>
   </div>
 </template>
@@ -45,150 +49,326 @@ export default {};
 </script>
 
 <style scoped>
-.container{
-  max-width:768px;
-  margin:0 auto;
-  width:96%;
+
+#sec-img{
+  width: 100%;
+  object-fit: cover;
+  height: 900px;
+  display: block;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 900px;
 }
+#padres {
+  font-family: "Alex Brush", cursive;
+  margin-top: 100px;
+  text-align: center;
+  color: #ffff;
+  font-size: 6rem;
+  line-height: 0.6;
+}
+
+.rippedpaper-top {
+  text-align: center;
+  position: relative;
+  margin-top: -20px; /* Ajusta este valor según tu diseño */
+  z-index: 1;
+  transform: scaleX(-1); /* Voltea horizontalmente la imagen */
+}
+
+.rippedpaper-top img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transform: scaleY(-1); /* Voltea verticalmente la imagen */
+}
+
+.rippedpaper img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+
+.container {
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  height: 900px;
+  display: block;
+  transition: transform 0.5s ease-in-out;
+}
+
 .main-picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  margin: 0 0;
+  overflow: hidden;
 }
-.main-picture img {
-  width: 100%;
+
+.main-picture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 50%);
+  z-index: 1;
+  pointer-events: none; /* Evita que el pseudo-elemento sea interactivo */
 }
-.main-info {
-  width: 100%;
-  height: 90rem;
+
+.logo {
+  position: absolute;
+  top: 70px; /* Ajusta la posición vertical del logo */
+  left: 50px; /* Ajusta la posición horizontal del logo */
+  z-index: 2; /* Para que el logo esté sobre el pseudo-elemento */
 }
-.main-info-title p {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  font-size: 2rem;
-  letter-spacing: 0.8rem;
+
+.logo img {
+  width: 100px; /* Ajusta el tamaño del logo según tus preferencias */
+  height: auto;
+  scale: 3;
+
 }
+
+.names {
+  text-align: center;
+  font-size: 9rem; /* Tamaño del texto de los nombres */
+  font-family: 'Times New Roman', cursive;
+  color: #fff; /* Color del texto */
+  position: relative;
+
+}
+
+.names-bride {
+  margin-left: 150px;
+}
+
+.boy {
+  margin-right: 90px;
+}
+
+img {
+  transition: transform 0.5s ease-in-out; /* Agrega la transición en el estado normal */
+}
+
 .main-info-location p {
   font-size: 1.5rem;
   text-align: center;
   margin: 0;
+  padding: 0;
+  letter-spacing: 0.3rem;
+  color: #ff69b4;
 }
+
 .divide-line {
   margin: 3rem 3rem;
   border: 0.7px solid rgb(218, 218, 218);
 }
+
 .main-greeting {
   margin: 0 auto;
   padding: 0 2.3rem;
 }
+
 .main-greeting-title {
-  padding-bottom: 4rem;
+  font-size: 2.3rem;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  letter-spacing: 0.8rem;
+  color: #B4D2ACFF;
 }
+
 .main-greeting-title p {
   letter-spacing: 0.3rem;
   font-size: 1.5rem;
   margin: 0.4rem 0;
 }
+
 .main-greeting-title p span {
   font-size: 1.2rem;
 }
+
 .main-greeting-text p {
   font-size: 1.27rem;
   margin-top: 0.5rem;
   padding: 0.3rem 0;
 }
+
 .main-greeting-text {
-  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  letter-spacing: 0.8rem;
+  color: #ffff;
+  font-weight: bold;
 }
-.bottom-img {
-  overflow: hidden;
+
+/* Estilos para dispositivos móviles (ancho máximo de 767px) */
+@media (max-width: 767px) {
+
+  #padres{
+    font-size: 4rem;
+    line-height: 1;
+  }
+  .main-greeting-title{
+    font-size: 1.7rem;
+    padding-bottom: 1rem;
+  }
+
+  .main-greeting-text{
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+  }
+
+  .image {
+    object-fit: cover;
+    height: auto; /* Cambia la altura para que la imagen se ajuste de manera proporcional */
+  }
+
+  .names {
+    font-size: 6rem; /* Ajusta el tamaño del texto de los nombres para dispositivos móviles */
+  }
+
+  .names-bride {
+    margin-left: 50px; /* Ajusta el margen izquierdo para centrar mejor los nombres */
+  }
+
+  .boy {
+    margin-right: 50px; /* Ajusta el margen derecho para centrar mejor los nombres */
+  }
+
+  .rippedpaper-top {
+    margin-top: -10px; /* Ajusta este valor según tu diseño */
+  }
+
+  .names {
+    font-size: 4rem; /* Ajusta el tamaño del texto de los nombres para dispositivos móviles */
+  }
+
+  .logo {
+    scale: 0.8;
+    left: 20px;
+  }
+
+  /* Agrega cualquier otro ajuste necesario para dispositivos móviles aquí */
 }
-.bottom-img img {
-  width: 100%;
-  transform: translate(0, -55%);
-}
+
+/* Resto de tu CSS para tabletas y escritorio */
+
+
 @media (min-width: 350px) {
   .main-info {
     height: 95rem;
   }
+
   .main-info-location p {
-  font-size: 1.7rem;
-}
+    font-size: 1.7rem;
+  }
+
   .main-greeting-title {
-  padding-bottom: 4rem;
-}
+    padding-bottom: 4rem;
+  }
+
   .main-greeting-title p span {
     font-size: 1.4rem;
   }
+
   .main-greeting-title p {
     font-size: 1.7rem;
   }
+
   .main-greeting-text p {
     font-size: 1.4rem;
     margin-top: 0.5rem;
     padding: 0.3rem 0;
   }
+
   .main-greeting {
     margin: 0 auto;
   }
+
   .divide-line {
     margin: 3rem 2rem;
   }
+
   .bottom-img {
-    height:25%;
-  overflow: hidden;
+    height: 25%;
+    overflow: hidden;
+  }
+
+  .bottom-img img {
+    transform: translate(0, -60%);
+  }
 }
-.bottom-img img {
-  transform: translate(0, -60%);
-}
-}
+
 @media (min-width: 380px) {
   .main-info {
     height: 97rem;
   }
+
   .main-greeting {
     padding: 0 2.7rem;
   }
+
   .divide-line {
     margin: 3rem 2.5rem;
   }
-    .main-greeting-text p {
+
+  .main-greeting-text p {
     font-size: 1.5rem;
     margin-top: 0.5rem;
     padding: 0.3rem 0;
   }
 }
+
 @media (min-width: 420px) {
   .main-info {
     height: 105rem;
   }
+
   .main-info-title p {
-    font-size:2.3rem;
-}
-.main-info-location p {
-  font-size: 1.7rem;
-}
+    font-size: 2.3rem;
+  }
+
+  .main-info-location p {
+    font-size: 1.7rem;
+  }
+
   .main-greeting-title p span {
     font-size: 1.4rem;
   }
+
   .main-greeting-title p {
     font-size: 1.8rem;
   }
+
   .main-greeting-text p {
     font-size: 1.6rem;
     margin-top: 0.5rem;
     padding: 0.3rem 0;
   }
+
   .main-greeting {
     padding: 0 3rem;
   }
+
   .bottom-img {
-  height: 25%;
+    height: 25%;
   }
+
   .bottom-img img {
-  transform: translate(0, -55%);
-}
+    transform: translate(0, -55%);
+  }
+
   .divide-line {
     margin: 3rem 3rem;
   }

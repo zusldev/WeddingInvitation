@@ -1,12 +1,10 @@
 <template>
   <div class="footer">
-    <ul>
-      email: leeseoooo@naver.com
-      <a href="https://github.com/leeseooo">Github: leeseooo</a>
-    </ul>
-    <ul>
-      © 2021. All Rights Reserved.
-    </ul>
+    lorem ipsum dolor sit amet,
+    consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud
   </div>
 </template>
 
